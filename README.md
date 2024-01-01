@@ -29,6 +29,7 @@ Sum =A’B’Cin + A’BCin’ + ABCin + AB’Cin’ = A ⊕ B ⊕ Cin Carry = A
 
 #### Figure -02 FULL ADDER 
 
+
 ### Procedure
 
 Connect the supply (+5V) to the circuit
@@ -36,6 +37,40 @@ Switch ON the main switch
 If the output is 1, then the led glows.
 ### 
 Program:
+halfadder
+````
+module halffull(a,b,sum,carry);
+input a,b;
+output sum,carry;
+xor(sum,a,b);
+and(carry,a,b);
+endmodule
+````
+RTL
+![image](https://github.com/SGokul2005/Exp-02-Implementation-of-Half-Adder-and-Full-Adder-circuit/assets/147121825/13c0a9a5-917f-4df2-a8d9-e89deb5ecd05)
+TRUTH TABLE
+![WhatsApp Image 2024-01-01 at 20 17 23_320655be](https://github.com/SGokul2005/Exp-02-Implementation-of-Half-Adder-and-Full-Adder-circuit/assets/147121825/a30c5e28-0153-4390-a078-b5eb3f6814db)
+WAVEFORM
+![Screenshot 2023-12-31 132251](https://github.com/SGokul2005/Exp-02-Implementation-of-Half-Adder-and-Full-Adder-circuit/assets/147121825/6d3dc34c-acc2-420a-8d17-de7fdaf827fb)
+
+
+full adder
+````
+module fulladder(a,b,c,sum,carry);
+input a,b,c;
+output sum,carry;
+xor(sum,a,b,c);
+assign carry=a&b | b&c | a&c;
+endmodule 
+````
+RTL
+![image](https://github.com/SGokul2005/Exp-02-Implementation-of-Half-Adder-and-Full-Adder-circuit/assets/147121825/38f5f9cc-226c-4250-8060-854ca1b55b97)
+TRUTHTABLE
+![WhatsApp Image 2024-01-01 at 20 17 23_fbc6862b](https://github.com/SGokul2005/Exp-02-Implementation-of-Half-Adder-and-Full-Adder-circuit/assets/147121825/ec073fcc-dbdc-4323-ae74-ce58b39a3f20)
+WAVEFORM
+![Screenshot 2024-01-01 195253](https://github.com/SGokul2005/Exp-02-Implementation-of-Half-Adder-and-Full-Adder-circuit/assets/147121825/e1f3e256-96ba-4f69-82b3-1542c1c03b37)
+
+
 /*
 Program to design a half adder and full adder circuit and verify its truth table in quartus using Verilog programming.
 Developed by: 
